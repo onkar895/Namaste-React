@@ -1,12 +1,15 @@
-(Redux Toolkit) :
+## (Redux Toolkit) :
+
+```
 Step 1: Install @reduxjs/toolkit and react-redux libraries
 Step 2: Build our own store.
 Step 3: Connect the store to our app(make the bridge)
 Step 4: Create Cart slice
 Step 5: Dispatch action
 Step 6: Use selector to subscribe to the CartSlice
+```
 
-Que. 1 UseContext VS Redux
+## Que. 1 UseContext VS Redux :
 
 Ans : `useContext` and Redux are both state management solutions in React, but they have different approaches and use cases. Let's compare the two:
 
@@ -40,7 +43,7 @@ Ans : `useContext` and Redux are both state management solutions in React, but t
 
 In summary, `useContext` is a simple way to manage local or small-scale state within a component or a few related components, whereas Redux is better suited for managing larger-scale global application state and provides a more structured approach with tools for debugging and handling complex state interactions. The choice between the two depends on the specific needs and scale of your application. Additionally, for smaller applications, you might also consider other state management solutions like the React `useState` and `useReducer` hooks.
 
-Que. 2 Advantages of using Redux-Toolkit over Redux?
+## Que. 2 Advantages of using Redux-Toolkit over Redux?
 
 Ans : Redux Toolkit is a library that simplifies and streamlines the usage of Redux for state management in React applications. It provides several advantages over using plain Redux, making it a popular choice for many developers. Here are the advantages of using Redux Toolkit over Redux:
 
@@ -89,7 +92,7 @@ Ans : Redux Toolkit is a library that simplifies and streamlines the usage of Re
 
 In summary, Redux Toolkit simplifies and enhances the development experience when using Redux for state management in React applications. It reduces boilerplate, promotes good practices, and provides tools to handle common tasks, making it a compelling choice for most Redux projects.
 
-Que. 3 Explain Dispatcher, Reducer, Slice and selector?
+## Que. 3 Explain Dispatcher, Reducer, Slice and selector?
 
 Ans : In the context of Redux Toolkit, which simplifies and streamlines the use of Redux, the terms "Dispatcher," "Reducer," "Slice," and "Selector" refer to different concepts and tools used for managing and manipulating application state. Here's an explanation of each:
 
@@ -124,7 +127,7 @@ In summary, these terms are essential concepts in Redux and Redux Toolkit for ma
 -   **Slice**: Defines a portion of the state with its reducer and actions.
 -   **Selector**: Extracts specific pieces of data from the state in a structured way.
 
-Que. 4 Explain CreateSlice and the configuration it takes?
+## Que. 4 Explain CreateSlice and the configuration it takes?
 
 Ans : In Redux Toolkit, the `createSlice` function is a powerful utility for defining a Redux slice, which encapsulates a portion of your application's state along with its associated reducer and actions. `createSlice` simplifies the process of creating reducers and action creators, reducing boilerplate code. Here's an explanation of the `createSlice` function and its configuration options:
 
