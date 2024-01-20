@@ -10,9 +10,25 @@
 
 #### Q1. What is a Higher-Order Component?
 
--   It is a **function that takes an existing component as an argument and then enhances that component(adds some extra features to it), and then returns this enhanced component.**
+-   In React, a higher-order component is a **function that takes a component as an argument and returns a new component that wraps the original component.**
+-   That means it **takes an existing component as an argument and then enhances that component(adds some extra features to it), and then returns this enhanced component.**
+-   It allows you to add additional functionality to a component without modifying the component's code.
 -   Higher Order Components are **Pure Functions**. They never **modify the component** that they take in as input. They just add extra features on top of it/ **enhance the basic component**.
     **| Enhanced Restaurant Component | = | Basic Component with dynamic Restaurant data + Label 'Promoted' on top of Basic Component |**
+
+-   **Benefits of Using Higher-Order Components in React:**
+    -   **Reusability**: HOCs allow you to reuse component logic across multiple components, which can save time and reduce code duplication.
+    -   **Flexibility:** HOCs can take additional arguments, which allows you to customize the behavior of the HOC.
+    -   Higher-order components can be used to implement cross-cutting concerns in your application such as **authentication, error handling, logging, performance tracking, and many other features.**
+
+```js
+function withRouter(Component) {
+    return function (props) {
+        const location = useRouter();
+        return <Component {...props} location={location} />;
+    };
+}
+```
 
 #### Q2. What makes the Data Layer of our app?
 
@@ -60,18 +76,18 @@
 -   Instead, it simply assigns undefined to the context value and when later we try to use the context value inside some consumer or useContext(), we get a typeError saying the value is undefined.
 -   If we totally avoid the Provider component, then the components where useContext() is written will take the default context value
 
-```
+```js
 const ThemeContext = createContext("Default");
 ```
 
-```
-const User = ()=>{
-  const context = useContext(ThemeContext);
-  return <h2>User: {context}</h2>
-}
+```js
+const User = () => {
+    const context = useContext(ThemeContext);
+    return <h2>User: {context}</h2>;
+};
 ```
 
-```
+```js
 const App = ()=>{
   return (<div>
           <ThemeContext.Provider value = {{context:"User1"}}>
