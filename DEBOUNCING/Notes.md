@@ -1,5 +1,11 @@
 # Debouncing :
 
+-   Debouncing is a technique used to limit the number of times a function gets executed based on how frequently it's called. It's often used in cases where a function is triggered repeatedly in a short amount of time, such as in response to a user typing in an input field or scrolling down a page.
+-   When you debounce a function, you specify a wait time. After the user stops interacting with the element for the specified amount of time, the function will be executed. This prevents the function from being executed too often, which can improve performance and prevent unnecessary API calls.
+-   There are a few different ways to implement debouncing in React. One common way is to use a debounce function. This function takes a function as an argument and returns a new function that will only be executed after the specified wait time has passed.
+-   Another way to implement debouncing in React is to use React's built-in useEffect hook. This hook allows you to run a function after a specific delay. To debounce a function using useEffect, you can pass the function to the useEffect hook with a wait time as the second argument.
+-   Debouncing is a powerful technique that can help you improve the performance of your React applications. By limiting the number of times a function is executed, you can prevent unnecessary API calls and improve the overall user experience.
+
 ## Lets assume the exmaple of Youtube Search Bar:
 
 -   So, when you start writing in search bar it will start showing you suggessions whatever you search for.
@@ -42,6 +48,8 @@
 ## Performance - Why Debouncing Matters:
 
 -   Debouncing is crucial for optimizing performance by minimizing unnecessary API calls.
+
+-   The main goal of debouncing is to optimize performance and prevent unnecessary function executions, especially in scenarios where the function might be triggered rapidly or repeatedly.
 
 -   Consider a scenario where a user searches for "Iphone 14 Max" with 14 letters. Without debouncing, a thousand searches could result in a staggering 14,000 API calls.
 
