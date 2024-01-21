@@ -1,10 +1,53 @@
 # Debouncing :
 
--   Debouncing is a technique used to limit the number of times a function gets executed based on how frequently it's called. It's often used in cases where a function is triggered repeatedly in a short amount of time, such as in response to a user typing in an input field or scrolling down a page.
--   When you debounce a function, you specify a wait time. After the user stops interacting with the element for the specified amount of time, the function will be executed. This prevents the function from being executed too often, which can improve performance and prevent unnecessary API calls.
--   There are a few different ways to implement debouncing in React. One common way is to use a debounce function. This function takes a function as an argument and returns a new function that will only be executed after the specified wait time has passed.
--   Another way to implement debouncing in React is to use React's built-in useEffect hook. This hook allows you to run a function after a specific delay. To debounce a function using useEffect, you can pass the function to the useEffect hook with a wait time as the second argument.
--   Debouncing is a powerful technique that can help you improve the performance of your React applications. By limiting the number of times a function is executed, you can prevent unnecessary API calls and improve the overall user experience.
+-   **Debouncing** is a technique used to limit the number of times a function gets executed based on how frequently it's called. It's often used in cases where a function is triggered repeatedly in a short amount of time, such as in response to a user typing in an input field or scrolling down a page.
+
+-   When you debounce a function, you specify a wait time. After the user stops interacting with the element for the specified amount of time, the function will be executed. **This prevents the function from being executed too often, which can improve performance and prevent unnecessary API calls.**
+
+-   Debouncing can help you to **improve the performance of your React applications by reducing unnecessary function calls, you can prevent unnecessary API calls and improve the overall user experience.**
+
+-   There are a few different ways to implement debouncing in React:
+
+    -   One common way is to use a **debounce function**. This function takes a function as an argument and returns a new function that will only be executed after the specified wait time has passed.
+
+    -   Another way to implement debouncing in React is to use React's built-in **useEffect hook**. This hook allows you to run a function after a specific delay. To debounce a function using useEffect, **you can pass the function to the useEffect hook with a wait time as the second argument.**
+
+## Here's a basic outline of how debouncing works in React:
+
+-   Set up a function that you want to debounce:
+
+```js
+const handleInputChange = (event) => {
+    // Your logic here
+};
+```
+
+-   Use a debouncing function:
+    You can implement a debouncing function, often using setTimeout, to delay the execution of the actual function.
+
+```js
+const debounce = (func, delay) => {
+    let timeoutId;
+    return function (...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            func(...args);
+        }, delay);
+    };
+};
+```
+
+-   Apply the debouncing function to your event handler:
+
+```js
+const debouncedHandleInputChange = debounce(handleInputChange, 300); // 300ms delay, for example
+
+// ...
+
+<input type="text" onChange={debouncedHandleInputChange} />;
+```
+
+In this example, **debouncedHandleInputChange** is the debounced version of **handleInputChange**, and it will only execute after the user stops typing for 300 milliseconds. Adjust the delay according to your specific use case.
 
 ## Lets assume the exmaple of Youtube Search Bar:
 
