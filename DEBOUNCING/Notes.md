@@ -12,42 +12,53 @@
 
     -   Another way to implement debouncing in React is to use React's built-in **useEffect hook**. This hook allows you to run a function after a specific delay. To debounce a function using useEffect, **you can pass the function to the useEffect hook with a wait time as the second argument.**
 
-## Here's a basic outline of how debouncing works in React:
-
--   Set up a function that you want to debounce:
-
-```js
-const handleInputChange = (event) => {
-    // Your logic here
-};
-```
+## How debouncing works in React, this is the example of SearchBar in my YouTube project :
 
 -   Use a debouncing function:
     You can implement a debouncing function, often using setTimeout, to delay the execution of the actual function.
 
 ```js
-const debounce = (func, delay) => {
-    let timeoutId;
-    return function (...args) {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-            func(...args);
-        }, delay);
+const [searchQuery, setSearchQuery] = useState("");
+// console.log(searchQuery)
+
+useEffect(() => {
+    // Make an API call after every key press
+    // But if the difference between 2 API calls is < 200ms then decline the API call.
+    const timer = setTimeout(() => {
+        getSearchSuggestions();
+    }, 200);
+
+    return () => {
+        clearTimeout(timer);
     };
+}, [searchQuery]);
+// I don't want to make an API call only at the first time; I want to make an API call everytime my searchQuery changes, taht why I'm taking searchQuery in the dependency array.
+
+/**
+ * If I want to search for india
+ * 1. key - i
+ * - render the component
+ * - call useEffect()
+ * - start the timer => make an api call after 200ms
+ *
+ * 2. key - in
+ * (Evenbefore 200ms if I press the key it will first destroy the component and when it destroying the component, it will call clearTimeOut)
+ * - destroy the component(call useEffect return method)
+ * - re-render the component
+ * - call useEffect()
+ * - start the timer => make an api call after 200ms and this timer is new everytime searchQuery changes.
+ */
+
+const getSearchSuggestions = async () => {
+    try {
+        const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+        const response = await data.json();
+        console.log(response);
+    } catch (error) {
+        console.error("Error while fetching search suggestions:", error);
+    }
 };
 ```
-
--   Apply the debouncing function to your event handler:
-
-```js
-const debouncedHandleInputChange = debounce(handleInputChange, 300); // 300ms delay, for example
-
-// ...
-
-<input type="text" onChange={debouncedHandleInputChange} />;
-```
-
-In this example, **debouncedHandleInputChange** is the debounced version of **handleInputChange**, and it will only execute after the user stops typing for 300 milliseconds. Adjust the delay according to your specific use case.
 
 ## Lets assume the exmaple of Youtube Search Bar:
 
