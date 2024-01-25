@@ -116,3 +116,19 @@ const getSearchSuggestions = async () => {
 -   If you typing **Iphone 14 Max** = 14 letter \* search for 1000 times = It will make 14000 API Calls.
 -   But if you are using **Debouncing** here , and if we make 3 API calls \* search for 1000 times = It will only make 3000 API Calls.
 -   So for improve the performance , debouncing will be better right?
+
+## Now after using Debouncing let's add cached results to it :
+
+-   It's another approach to improve our search results by decreasing API requests when I search the same word repeatedly.
+
+-   So, let's utilize **Redux** as the cache. Whenever I search for something, I will keep my cache in the redux.
+
+-   If I search for iPhone, it will **save the search results from the API request to the Redux store. And every time I try to search for the same keyword, it should not make another API call for that word. It further optimizes the searchBar by minimizing the number of API requests.**
+
+## Better Explanation :
+
+-   Imagine you have a search bar that helps you find information. Now, let's make it smarter.
+
+-   Debouncing: First, we make sure the search bar doesn't send too many requests too quickly. It waits a bit to see if you're done typing before looking for results.
+
+-   Cached Results: Now, let's make it even smarter. We add a memory to our search bar. So, if you search for something once, like "Iphone," it remembers the results. The next time you type "Iphone" again, it doesn't bother asking the internet again. It just shows you what it remembers from the last search. We use something called Redux to help our search bar remember things.
