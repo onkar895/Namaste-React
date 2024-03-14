@@ -45,7 +45,12 @@
     ```
 
 -   After Installating the **react testing library** you need to install **jest** also.
--   Jest Installation : **npm install --save-dev jest**.
+-   Jest Installation :
+
+```js
+**npm install --save-dev jest**.
+```
+
 -   Installation with babel then you need to install additional dependenncies : **npm install --save-dev babel-jest @babel/core @babel/preset-env**
 -   After installation You have to configure it :
 
@@ -76,7 +81,6 @@
 ```js
 **.parcelrc**
 {
-
   "extends": "@parcel/config-default",
   "transformers": {
   "\*.{js,mjs,jsx,cjs,ts,tsx}": [
