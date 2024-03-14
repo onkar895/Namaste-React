@@ -102,3 +102,7 @@ npx jest --init
 -   After running the above command it will ask for the **node or jsdom** ,Now select **jsdom** to go forward.
 -   **jsdom library**:-
     -   Test cases can not run on browser, so **jsdom** provide an runtime environment where the test cases will be executed.
+-   Do you want Jest to add coverage reports? ... yes
+-   Which provider should be used to instrument code for coverage? » babel
+-   Automatically clear mock calls, instances, contexts and results before every test? » ... yes
+-   and now you will get the configuration file which is **jest.config**
