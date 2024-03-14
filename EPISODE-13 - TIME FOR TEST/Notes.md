@@ -71,6 +71,8 @@
     -   You can make Parcel ignore your Babel config instead, which will have performance benefits and prevent the other issues described above.
     -   To disable Babel transpilation in Parcel, override the default Parcel config for JavaScript to exclude @parcel/transformer-babel.
 
+-   Configuration of parcel config file to disable default babel transpilation.
+
 ```js
 **.parcelrc**
 {
