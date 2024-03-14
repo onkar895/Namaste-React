@@ -24,7 +24,63 @@
 
 ## Libraries to test React Applications :
 
--   React Testing Library :
+-   **React Testing Library** :
 
     -   **React Testing Library** builds on top of DOM Testing Library by adding APIs for working with React components.
     -   The **React Testing Library** is a very light-weight solution for testing React components. It provides light utility functions on top of react-dom and react-dom/test-utils, in a way that encourages better testing practices.
+    -   React Testing library uses something Known as **Jest**.
+
+-   **Jest** :
+
+    -   **Jest** is a delightful **javascript testing framework** with a focus on simplicity.
+    -   React testing Library uses **jest** behind the scene.
+    -   It works with projects using: **Babel, TypeScript, Node, React, Angular, Vue and more!**
+
+### Setting up the testing :
+
+-   Installation of react testing library:
+
+    ```js
+    **npm install --save-dev @testing-library/react**.
+    ```
+
+-   After Installating the **react testing library** you need to install **jest** also.
+-   Jest Installation : **npm install --save-dev jest**.
+-   Installation with babel then you need to install additional dependenncies : **npm install --save-dev babel-jest @babel/core @babel/preset-env**
+-   After installation You have to configure it :
+
+    ```js
+    **babel.config.js**
+    module.exports = {
+    presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+    };
+    ```
+
+-   Remembering the most important things :
+
+    -   So parcel already uses babel behind the scenes.
+    -   And parcel has its own configuration for babel.
+    -   Now we are trying to add extra configuration in file **babel.config** so the parvel will gets confused.
+    -   The parcel will automatically overrides or conflicts the **babel.config**.
+    -   So for that, we will have to change the parcel's behaviour to accomodate to use babel along with jest. We will have to make some chages in our parcel.
+
+-   **Usage with other tools** :
+
+    -   While Parcel includes transpilation by default, you may still need to use Babel with other tools such as test runners like **Jest**, and **linters like ESLint**.
+    -   If this is the case, you may not be able to completely remove your Babel config.
+    -   You can make Parcel ignore your Babel config instead, which will have performance benefits and prevent the other issues described above.
+    -   To disable Babel transpilation in Parcel, override the default Parcel config for JavaScript to exclude @parcel/transformer-babel.
+
+```js
+**.parcelrc**
+{
+
+  "extends": "@parcel/config-default",
+  "transformers": {
+  "\*.{js,mjs,jsx,cjs,ts,tsx}": [
+  "@parcel/transformer-js",
+  "@parcel/transformer-react-refresh-wrap"
+  ]
+  }
+  }
+```
