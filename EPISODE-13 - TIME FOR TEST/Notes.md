@@ -90,3 +90,15 @@
   }
   }
 ```
+
+-   Now You have successfully done with Configuration of parcel config file to disable default babel transpilation.
+-   Next step is you have to write the **jest configuration**
+
+```js
+npx jest --init
+```
+
+-   This command creates a jest.config file in the root level of your react application.
+-   After running the above command it will ask for the **node or jsdom** ,Now select **jsdom** to go forward.
+-   **jsdom library**:-
+    -   Test cases can not run on browser, so **jsdom** provide an runtime environment where the test cases will be executed.
