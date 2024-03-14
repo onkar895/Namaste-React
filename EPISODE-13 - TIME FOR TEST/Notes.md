@@ -106,3 +106,5 @@ npx jest --init
 -   Which provider should be used to instrument code for coverage? » babel
 -   Automatically clear mock calls, instances, contexts and results before every test? » ... yes
 -   and now you will get the configuration file which is **jest.config**
+
+-   Now after all the configurations and installations, you will have to install **jsdom library** also beacuse If you're using Jest 28 or later **jest-environment-jsdom package** now must be installed separately.
