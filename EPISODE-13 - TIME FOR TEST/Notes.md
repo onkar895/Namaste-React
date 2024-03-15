@@ -108,3 +108,15 @@ npx jest --init
 -   and now you will get the configuration file which is **jest.config**
 
 -   Now after all the configurations and installations, you will have to install **jsdom library** also beacuse If you're using Jest 28 or later **jest-environment-jsdom package** now must be installed separately.
+-   After that you have to install **@babel/preset-react to** make JSX work in test cases.
+-   Then include **@babel/preset-react** inside the babel.config like **["@babel/preset-react", { runtime: "automatic" }],**
+-   Now babel.config looks like :
+
+```js
+module.exports = {
+    presets: [
+        ["@babel/preset-env", { targets: { node: "current" } }],
+        ["@babel/preset-react", { runtime: "automatic" }],
+    ],
+};
+```
