@@ -6,7 +6,7 @@ A: `JSX` is an Extension Syntax that allows writing HTML and Javascript together
 
 #### Example of `JSX`
 
-```
+```js
 const sample = <h2>Greetings</h2>;
 ```
 
@@ -26,7 +26,7 @@ A: The Difference is stated below:
 
 #### Example
 
-```
+```js
 <TitleComponent>
     <FirstChildComponent />
     <SecondChildComponent />
@@ -59,7 +59,7 @@ A: `<React.Fragment></React.Fragment>` is a feature in React that allows you to 
 
 #### Example
 
-```
+```js
 return (
         <React.Fragment>
             <Header />
@@ -102,7 +102,7 @@ Keys should be given to the elements within the array to give the elements a sta
 
 #### Example
 
-```
+```js
 <li key={0}>1</li>
 <li key={1}>2</li>
 <li key={2}>3</li>
@@ -119,7 +119,7 @@ A: props stands for properties. Props are arguments passed into React components
 
 #### Example
 
-```
+```js
 function App() {
   return (
     <div className="App">
