@@ -2,98 +2,106 @@
 
 #### 1. Explore all the ways of writing CSS
 
-1. Vanilla CSS:
-    - We can use plain CSS to give styles to our app.
-    - We create an index.css file and add all the CSS rules there.
-2. SASS / SCSS :
+1. **Vanilla CSS:**
 
-    - SASS stands for Syntactically Awesome StyleSheets.
-    - It is a stylesheet language that is **complied to CSS**.
-    - Allows us to make use of **Nested rules, variables, functions**
-    - SASS supports 2 syntaxes : SASS and SCSS
-    - **SCSS: The SCSS syntax uses the file extension .scss.** It is a superset of CSS. It uses curly braces and semi colon syntax.
-    - **SASS(The Indented Syntax): Uses file extension .sass.** It uses indentation instead of curly braces, and line-end instead of semicolon.
+   - We can use plain CSS to give styles to our app.
+   - We create an `index.css` file and add all the CSS rules there.
 
-    | SCSS                       | SASS                      |
-    | -------------------------- | ------------------------- |
-    | .button {                  |                           |
-    | padding: 3px 10px;         | .button                   |
-    | font-size: 12px;           | padding: 3px 10px         |
-    | border-radius: 3px;        | font-size: 12px           |
-    | border: 1px solid #e1e4e8; | border-radius: 3px        |
-    | }                          | border: 1px solid #e1e4e8 |
+2. **SASS / SCSS:**
 
-3. Styled Components:
+   - SASS stands for **Syntactically Awesome StyleSheets**.
+   - It is a stylesheet language that is **compiled to CSS**.
+   - Allows us to make use of **Nested rules, variables, functions**.
+   - SASS supports 2 syntaxes: **SASS and SCSS**.
+   - **SCSS:** Uses the file extension `.scss`. It is a superset of CSS, using curly braces and semicolon syntax.
+   - **SASS (The Indented Syntax):** Uses file extension `.sass`. It uses indentation instead of curly braces, and line-end instead of semicolon.
 
-    - It allows us to write styles just as we write React components.
-    - It removes the mapping between components and styles.
-    - This means that when you're defining your styles, you're actually creating a normal React component, that has your styles attached to it.
-    - Utilises tagged template literals to style your components.
+   | SCSS                       | SASS                      |
+   | -------------------------- | ------------------------- |
+   | .button {                  |                           |
+   | padding: 3px 10px;         | .button                   |
+   | font-size: 12px;           | padding: 3px 10px         |
+   | border-radius: 3px;        | font-size: 12px           |
+   | border: 1px solid #e1e4e8; | border-radius: 3px        |
+   | }                          | border: 1px solid #e1e4e8 |
 
-4. Using External CSS Libraries like Material UI, Tailwind CSS, BootStrap, Ant Design, Chakra UI etc. Such libraries give pre-styled components.
-    - They export such components that are already beautiful. We can simply import and use them.
-    - Tailwind CSS is the most modern method being used extensively in the industry to style web apps.
+3. **Styled Components:**
 
-#### 2. How do you configure tailwind?
+   - It allows us to write styles just as we write React components.
+   - It removes the mapping between components and styles.
+   - Utilizes **tagged template literals** to style your components.
 
--   **Step1:** Create the project
--   **Step2: Install tailwind css via npm** an initialise it to generate teh tailwind.config.js file
-    ```
-         > npm install -D tailwindcss postcss
-         > npx tailwindcss init
-    ```
--   **Step3: Create a .postcssrc file** at the root level of our app. This creates the config file for postcss. This **tells parcel to use postcss to read and understand tailwindcss.**
--   **Step4: Give the configuration in postcssrc file.**
-    #### .postcssrc:
-    ```
-    {
-    "plugins": {
-      "tailwindcss":{}
-      }
-    }
-    ```
--   **Step5: Give configuration for tailind css**. So need **to fill the content attribute in tailwind.config.js**
-    ```
-    module.exports = {
-      content: ["./src/**/*.{html,js}",]
-      theme: {
-              extend:{},
-             },
-      plugins: [],
-    }
-    ```
--   **Step6: Add Tailwind directives in index.css file:**
-    ```
-      @tailwind base;
-      @tailwind components;
-      @tailwind utilities;
-    ```
+4. **Using External CSS Libraries** like Material UI, Tailwind CSS, Bootstrap, Ant Design, Chakra UI, etc.
+   - These libraries provide **pre-styled components**.
+   - **Tailwind CSS** is the most modern method used extensively to style web apps.
 
-#### 3. In tailwind.config.js, what do all the keys "content","theme","extend,"plugins" mean?
+---
 
--   **"content"**: It is the section of the config file where **we configure the paths to HTML, JS components and any other source files that contain tailwind classnames.** We specify the regex that tells where all tailwind can be used in our project.
--   **"theme"**: It is the section where you define your **project’s color palette, type scale, fonts, breakpoints, border radius values, and more.**
--   **"extend"**: It allows to extend the default spacing scale. If you’d like to preserve the default values for a theme option but also add new values, add your **extensions under the extend key in the theme section of your configuration file.**
--   **"plugins"**: Plugins let you register new styles by injecting them into the user’s stylesheet using JavaScript instead of CSS.
+#### 2. How do you configure Tailwind?
 
-#### 4. Why do we have a .postcssrc file?
+1. **Step 1:** Create the project.
+2. **Step 2:** Install Tailwind CSS via npm and initialize it to generate `tailwind.config.js`:
+   ```sh
+   npm install -D tailwindcss postcss
+   npx tailwindcss init
+   ```
+3. **Step 3:** Create a `.postcssrc` file at the root level of our app. This tells Parcel to use PostCSS to read and understand Tailwind CSS.
+4. **Step 4:** Configure the `.postcssrc` file:
+   ```json
+   {
+     "plugins": {
+       "tailwindcss": {}
+     }
+   }
+   ```
+5. **Step 5:** Configure `tailwind.config.js` by filling the `content` attribute:
+   ```js
+   module.exports = {
+     content: ["./src/**/*.{html,js}"],
+     theme: {
+       extend: {},
+     },
+     plugins: [],
+   };
+   ```
+6. **Step 6:** Add Tailwind directives in `index.css`:
+   ```css
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+   ```
 
--   .postcssrc file is a configuration file for postcss.
--   This we need to create at the root level of our project.
--   It tells parcel that it should make use of postcss to read and understand tailwind css.
+---
 
-#### 5. What are the pros and cons of using tailwind css?
+#### 3. In `tailwind.config.js`, what do the keys "content", "theme", "extend", and "plugins" mean?
+
+- **`content`**: Specifies paths to HTML, JS components, and source files that contain Tailwind class names.
+- **`theme`**: Defines project’s **color palette, fonts, breakpoints, border radius values, etc.**
+- **`extend`**: Extends the default spacing scale. Used to **add new values without removing defaults**.
+- **`plugins`**: Allows adding custom utilities and components using JavaScript instead of CSS.
+
+---
+
+#### 4. Why do we have a `.postcssrc` file?
+
+- `.postcssrc` is a configuration file for **PostCSS**.
+- It tells **Parcel** to use PostCSS for processing Tailwind CSS.
+- Required at the **root level** of the project.
+
+---
+
+#### 5. What are the pros and cons of using Tailwind CSS?
 
 **PROS:**
 
-1. We have all our styles in the js files itself. No need to move to and fro between js and css files again and again. So the development becomes quite quick.
-2. It is very **lightweight**. Only the classes that we use are included in the bundle of css. **Minimum CSS is loaded. Unused CSS is never shipped.**
-3. We can **build any complex UI** with Tailwind.
-4. We can build **absolutely responsive UIs** without writing media queries.
-5. Easily apply **hover and focus** states by using `hover:` at the beginning of the classname.
-6. **Preventing Redundancy**: When using Tailwind CSS, if we have two exact same green buttons, we can use the same classes for both of them. Behind the scenes, the CSS code for that class will be imported just once by Tailwind. **So our code will have just one such class not different redundant classes as in Vanilla CSS.**
+1. All styles are inside JS files, avoiding switching between JS and CSS files.
+2. **Lightweight**: Only used classes are included in the final CSS bundle.
+3. Can build **complex UI** with Tailwind.
+4. **Responsive UI** without writing media queries.
+5. Supports **hover and focus states** easily.
+6. **Prevents redundancy**, ensuring minimal CSS code.
 
 **CONS:**
 
-1. When we add a lot of CSS classes to our html/js code, the code becomes less-readable,lengthy and clumsy.
-2. Tailwind comes with a lot of **initial learning curve**.
+1. Excessive use of utility classes makes code **less readable**.
+2. **Learning curve**: Tailwind has its own learning process before becoming productive.
