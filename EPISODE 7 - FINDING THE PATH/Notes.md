@@ -5,14 +5,14 @@
 A: Using the `full URL of the image` for the web (CDN) or any public images.
 Example :
 
-```
+```js
 <img src="https://reactjs.org/logo-og.png" alt="React Image" />
 ```
 
 Adding the image into the project
 `Drag your image into your project` and `import it` into the desired component
 
-```
+```js
 import reactLogo from "./reactLogo.png";
 export default function App() {
   return <img src={reactLogo} alt="react logo" />
@@ -21,7 +21,7 @@ export default function App() {
 
 The correct way to structure images in your project is to add them in an `images` folder. If you are using other `assets` than just images, you might want to add all in the `assets` folders.
 
-```
+```js
 import reactLogo from "../../assets/images/reactLogo.png";
 export default function App() {
   return <img src={reactLogo} alt="react logo" />
@@ -36,13 +36,13 @@ A: If we do `console.log(useState())`, we get an array `[undefined, function]` w
 
 A: Syntax of `useEffect` is:
 
-```
+```js
 useEffect(() => {}, []);
 ```
 
 Case 1 : When the `dependency array is not included` in the arguments of `useEffect() hook`, the callback function will be executed `every time` the component is rendered and re-rendered.
 
-```
+```js
 useEffect(() => {
 	console.log("I run everytime this component rerenders")
 });
@@ -50,7 +50,7 @@ useEffect(() => {
 
 Case 2 : When the `dependency array is empty` in the arguments of `useEffect() hook`, the callback function will be executed `only one time` during the initial render of the component.
 
-```
+```js
 useEffect(() => {
 	console.log("I Only run once (When the component gets mounted)")
 }, []);
@@ -58,7 +58,7 @@ useEffect(() => {
 
 Case 3 : When the `dependency array contains a condition`, the callback function will be executed `one time` during the initial render of the component and also rerender if there is a `change in the condition`.
 
-```
+```js
 useEffect(() => {
 	console.log("I run every-time when my condition changed")
 }, [condition]);
