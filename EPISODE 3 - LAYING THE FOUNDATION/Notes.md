@@ -11,7 +11,7 @@ JSX converts HTML tags into react elements.
 
 ### Example 1 using JSX :
 
-```
+```js
 const myElement = <h1>I Love JSX!</h1>;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(myElement);
@@ -19,7 +19,7 @@ root.render(myElement);
 
 ### Example 2 Without JSX :
 
-```
+```js
 const myElement = React.createElement('h1', {}, 'I do not use JSX!');
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(myElement);
@@ -31,7 +31,7 @@ A: Using JSX, you can write markup inside Javascript, providing you with a super
 
 ### Example
 
-```
+```js
 function greeting(user) {
 //JSX
   return <h1>{user}, How are you!!!</h1>;
@@ -66,7 +66,7 @@ A: The Difference is stated below :
 
 ### Example
 
-```
+```js
 <TitleComponent>
     <FirstChildComponent />
     <SecondChildComponent />
