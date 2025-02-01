@@ -6,8 +6,9 @@ A: ES6 provides us to import & export a module and use it in other files. ES6 pr
 In `Named export`, one can have multiple named exports per file. Then import the specific exports they want surrounded in `{}` braces. The name of imported module has to be the same as the name of the exported module.
 In `Named export`, the component is exported from MyComponent.js file like:
 
-export const MyComponent = () => {}
-export const MyComponent2 = () => {}
+```js
+export const MyComponent = () => {};
+export const MyComponent2 = () => {};
 
 and the component is imported from MyComponent.js file like: here we must use `{}` in MyComponent.
 
@@ -56,6 +57,7 @@ export default MyComponent;
 and import like:
 
 import MyComponent, {MyComponent2} from "./MyComponent";
+```
 
 ## Q: What is the importance of `config.js` file?
 
