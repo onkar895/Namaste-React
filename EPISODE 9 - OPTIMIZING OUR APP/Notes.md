@@ -20,7 +20,7 @@
 -   The **import() takes the path of the component that we want to lazy load as a parameter**.
 -   Eg: As per the lazy load method, when we load our app initially, it won't load the code for the Grocery app within the Swiggy app. Instead, when we actually visit the Grocery link in the web page, then the code for it is loaded!
 
-```
+```js
 import {lazy} from "react"; // We need to import 'lazy' from 'react' package
 const Grocery = lazy(()=>{import("/src/components/Grocery")});
 ```
@@ -40,7 +40,7 @@ const Grocery = lazy(()=>{import("/src/components/Grocery")});
 -   Here, we wrapped Grocery component inside `<Suspense>`, and gave a fallback of "Loading..." string.
 -   Eg:
 
-```
+```js
 <Suspense fallback = {Loading...}>
   <Grocery/>
 </Suspense>
@@ -118,7 +118,7 @@ So while developing the app, we need to decide wisely how many and what componen
 -   Eg: resId(I/P) ------> | useRestaurantMenu(Hook) | -----------------> resInfo(O/P)
 -   Once the contract is clear, we can write the actual logic inside the Custom hook.
 
-```
+```js
 const useRestaurantMenu = (resId) => {
 
   //fetching-data logic
