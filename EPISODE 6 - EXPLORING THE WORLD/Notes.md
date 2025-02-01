@@ -35,9 +35,11 @@ useEffect(() => {}, [])
 The `() => {}` is callback function and `[]` is called a empty dependency array.
 If anything that we pass (suppose currentState) inside the `[]` it trigger the callback function and changes the state of the application.
 
+```js
 useEffect(() => {
-setCurrentState("true");
-}, [currentState])
+  setCurrentState("true");
+}, [currentState]);
+```
 
 If we do not pass empty dependency array then the useEffect runs everytime when the UI is rendered.
 
@@ -73,6 +75,7 @@ If we want to use `JS expression` in JSX, we have to wrap in `{/* expression slo
 
 A: `Conditional rendering` in React works the same way conditions work in `JavaScript`. Use JavaScript operators like `if` or the `conditional operator` to create elements representing the current state, and let React update the UI to match them. for example:
 
+```js
 // Using Ternary operator as a shorthand way or writing an if-else statement
 {isLoggedIn ? (return <UserGreeting />) : (return <GuestGreeting />)};
 // Using an if…else Statement
@@ -85,6 +88,7 @@ return <GuestGreeting />;
 }
 // Using Logical &&
 {isLoggedIn && <button>Logout</button>}
+```
 
 ## Q: What is `CORS`?
 
@@ -97,15 +101,15 @@ A: `Async`: It simply allows us to write promises-based code as if it was synchr
 `Await`: Await function is used to wait for the promise. It could be used within the `async` block only. It makes the code wait until the promise returns a result. It only makes the async block wait.
 for example:
 
+```js
 // async function getRestaurant to fetch Swiggy API data
 async function getRestaurants() {
-const data = await fetch(
-"Swiggy_API_URL"
-);
-const json = await data.json();
-// we get the Swiggy API data in json format
-console.log(json);
+  const data = await fetch("Swiggy_API_URL");
+  const json = await data.json();
+  // we get the Swiggy API data in json format
+  console.log(json);
 }
+```
 
 ## Q: What is the use of `const json = await data.json()`; in `getRestaurants()`?
 
