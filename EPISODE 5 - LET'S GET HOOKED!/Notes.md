@@ -72,15 +72,15 @@ Hooks allow you to reuse stateful logic without changing your component hierarch
 
 ### React provides a bunch of standard in-built hooks:
 
--   useState: To manage states. Returns a stateful value and an updater function to update it.
--   useEffect: To manage side-effects like API calls, subscriptions, timers, mutations, and more.
--   useContext: To return the current value for a context.
--   useReducer: A useState alternative to help with complex state management.
--   useCallback: It returns a memorized version of a callback to help a child component not re-render unnecessarily.
--   useMemo: It returns a memoized value that helps in performance optimizations.
--   useRef: It returns a ref object with a current property. The ref object is mutable. It is mainly used to access a child component imperatively.
--   useLayoutEffect: It fires at the end of all DOM mutations. It's best to use useEffect as much as possible over this one as the useLayoutEffect fires synchronously.
--   useDebugValue: Helps to display a label in React DevTools for custom hooks.
+- useState: To manage states. Returns a stateful value and an updater function to update it.
+- useEffect: To manage side-effects like API calls, subscriptions, timers, mutations, and more.
+- useContext: To return the current value for a context.
+- useReducer: A useState alternative to help with complex state management.
+- useCallback: It returns a memorized version of a callback to help a child component not re-render unnecessarily.
+- useMemo: It returns a memoized value that helps in performance optimizations.
+- useRef: It returns a ref object with a current property. The ref object is mutable. It is mainly used to access a child component imperatively.
+- useLayoutEffect: It fires at the end of all DOM mutations. It's best to use useEffect as much as possible over this one as the useLayoutEffect fires synchronously.
+- useDebugValue: Helps to display a label in React DevTools for custom hooks.
 
 ## Q: Why do we need `useState Hook`?
 
@@ -89,15 +89,19 @@ The useState hook is a special function that takes the `initial state` as an `ar
 
 #### Syntax for useState hook
 
+```js
 const [state, setState] = useState(initialstate);
+```
 
 #### Importing: To use useState you need to import useState from react as shown below:
 
+```js
 import React, { useState } from "react";
 
-we can use Hooks in Functional Components
+// we can use Hooks in Functional Components
 
 const Example = (props) => {
-// You can use Hooks here!
-return <div />;
-}
+  // You can use Hooks here!
+  return <div />;
+};
+```
