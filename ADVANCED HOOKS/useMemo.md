@@ -1,7 +1,7 @@
 # useMemo Hook:
 
-- useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
-- In the context of useMemo, cache means storing the result of a computation so that it doesn't need to be recalculated on every render unless its dependencies change.
+**useMemo** is a React Hook that lets you cache the result of a calculation between re-renders.
+In the context of useMemo, cache means storing the result of a computation so that it doesn't need to be recalculated on every render unless its dependencies change.
 
 ## Syntax:
 
