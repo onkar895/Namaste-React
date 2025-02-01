@@ -120,3 +120,5 @@ module.exports = {
     ],
 };
 ```
+
+-   After that you have to install **@testing-library/jest-dom**
